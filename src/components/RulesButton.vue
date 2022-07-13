@@ -35,7 +35,7 @@ export default {
 
     .rules>button:hover{
         background-color: #fff;
-        color:hsl(237, 49%, 15%);
+        color:rgb(20, 21, 57);
         border:2px solid #fff;
     }
 

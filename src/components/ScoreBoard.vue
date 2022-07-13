@@ -4,7 +4,7 @@
             <img src="../assets/logo.svg" alt="">
         </div>
         <div class="score">
-            <div>score<span>12</span></div>
+            <div>score<span>{{score}}</span></div>
         </div>
     </div>
 </template>
@@ -12,6 +12,7 @@
 <script>
 export default {
     name: 'ScoreBoard',
+    props:['score'],
 }
 </script>
 
