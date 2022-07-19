@@ -49,6 +49,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 10000;
     }
 
     .modal-content{
@@ -59,6 +60,7 @@ export default {
         flex-direction: column;
         width:100%;
         height: 100%;
+        
     }
 
     .modal-content h1{

@@ -84,6 +84,7 @@ export default {
   overflow-y: hidden;
   
 }
+
 .container{
   width:90%;
   max-width: 600px;
@@ -100,7 +101,7 @@ export default {
   .container{
     width:60%;
     max-width: 800px;
-    gap:6rem;
+    gap:5rem;
     justify-content: unset;
   }
 }

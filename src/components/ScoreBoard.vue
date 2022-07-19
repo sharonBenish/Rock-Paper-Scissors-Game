@@ -26,6 +26,8 @@ export default {
     align-items: center;
     max-height: 100px;
     width:100%;
+    position: relative;
+    z-index: 500;
 }
 .game-name{
     height:60px;

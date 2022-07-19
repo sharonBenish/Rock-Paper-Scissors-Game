@@ -1,10 +1,10 @@
 <template>
     <div class="game-choices">
-        <div class="user-choice">
+        <div class="user-choice" ref="user">
             <ChoiceButton :choice='selected()'/>
             <p>YOU PICKED</p>
         </div>
-        <div class="house-choice">
+        <div class="house-choice" ref="computer">
             <ChoiceButton v-if="choiceVisible" :choice='computerPicked' />
             <div class="empty" v-else></div>
             <p>THE HOUSE PICKED</p>
@@ -60,12 +60,14 @@ export default{
                     case 'rockscissors':
                     case 'scissorspaper':
                         this.message = "YOU WIN";
+                        this.$refs.user.classList.add("winner");
                         this.updateScore("add");
                         break;
                     case 'paperscissors':
                     case 'rockpaper':
                     case 'scissorsrock':
                         this.message = "YOU LOSE";
+                        this.$refs.computer.classList.add("winner");
                         this.updateScore("minus");
                         break;
                 }
@@ -101,11 +103,15 @@ export default{
     text-align: center;
     font-size:0.7rem;
     margin-top:1.5rem;
+    position: relative;
+    z-index: 200;
 }
 .result{
     width:100%;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 300;
 }
 
 .result  h1{
@@ -136,7 +142,79 @@ export default{
     background-color:#192644;
 }
 
+.winner>.choice{
+    border-radius: 50%;
+    border: 20px solid #2B3755; 
+    position: relative;   
+}
+
+ .winner>.choice::after{
+    content: "";
+    position: absolute;
+    top:-40px;
+    bottom: -40px;
+    left: -40px;
+    right: -40px;
+    border: 20px solid #273655;
+    z-index: 100;
+    border-radius: 50%;
+    display: block;
+    
+ }
+
+ .winner>.choice::before{
+    content: "";
+    position: absolute;
+    top:-60px;
+    bottom: -60px;
+    left: -60px;
+    right: -60px;
+    border: 20px solid #223150;
+    z-index: 100;
+    border-radius: 50%;
+    display: block;
+    
+ }
+
+@media (min-width:730px){
+    .winner>.choice{
+    border: 30px solid #2B3755;   
+}
+
+ .winner>.choice::after{
+    content: "";
+    position: absolute;
+    top:-60px;
+    bottom: -60px;
+    left: -60px;
+    right: -60px;
+    border: 30px solid #273655;
+    z-index: 100;
+    border-radius: 50%;
+    display: block;
+    
+ }
+
+ .winner>.choice::before{
+    content: "";
+    position: absolute;
+    top:-90px;
+    bottom: -90px;
+    left: -90px;
+    right: -90px;
+    border: 30px solid #223150;
+    z-index: 100;
+    border-radius: 50%;
+    display: block;
+    
+ }
+}
+
 @media (min-width:1025px){
+   .game-choices{
+        width:100%;
+        max-width: none;
+   }
 
     .empty{
         width:150px;
@@ -148,7 +226,7 @@ export default{
     .game-choices{
         width:100%;
         justify-content: center;
-        gap:5rem;
+        gap:3rem;
         max-width: none;
     }
     .result{

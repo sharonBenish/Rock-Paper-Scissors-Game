@@ -20,9 +20,14 @@ export default{
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    position: relative;
-    gap:20px;
+    gap:50px;
     max-width: 400px;
+    position: relative;
+}
+
+.choice:last-of-type{
+    width:100%;
+    text-align: center;
 }
 
 .joint{
@@ -35,8 +40,8 @@ export default{
 
 @media (min-width:1025px){
     .choices{
-        max-width: 500px;
-        gap:40px;
+        max-width:600px;
+        
     }
 
     .joint{
